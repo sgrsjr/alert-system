@@ -14,9 +14,11 @@ public class Log {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String serverId;
-    String location;
+    private String location;
     Long timestamp;
+    private String errorMessage;
+    private String teamId;
+    private boolean isResolved;
 
     public Log() {
     }
@@ -27,14 +29,6 @@ public class Log {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getServerId() {
-        return serverId;
-    }
-
-    public void setServerId(String serverId) {
-        this.serverId = serverId;
     }
 
     public String getLocation() {
@@ -53,4 +47,27 @@ public class Log {
         this.timestamp = timestamp;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
+    }
+
+    public String getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
+    }
+
+    public boolean isResolved() {
+        return isResolved;
+    }
+
+    public void setResolved(boolean resolved) {
+        isResolved = resolved;
+    }
 }

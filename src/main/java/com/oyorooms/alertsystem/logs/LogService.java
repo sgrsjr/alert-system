@@ -3,7 +3,6 @@
  */
 package com.oyorooms.alertsystem.logs;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,14 +11,11 @@ import java.util.List;
 @Service
 public class LogService {
 
-    @Autowired
-    private LogRepository logRepository;
+    private final LogRepository logRepository;
 
-//    private List<Log> logs = Arrays.asList(
-//            new Log(new Date(), "1", "Delhi"),
-//            new Log(new Date(), "2", "Pune"),
-//            new Log(new Date(), "3", "Hyderabad")
-//    );
+    public LogService(LogRepository logRepository) {
+        this.logRepository = logRepository;
+    }
 
     List<Log> getAllLogs() {
         ArrayList<Log> logs = new ArrayList<>();
