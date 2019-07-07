@@ -1,0 +1,10 @@
+{
+  "services": [
+    {
+      "name": "Service A",
+      "isWorking": true,
+      "teamInfo": "team A"
+    }
+  ],
+  "allWorking": true
+}
