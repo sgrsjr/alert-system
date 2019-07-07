@@ -3,9 +3,10 @@
  */
 package com.oyorooms.alertsystem.logs;
 
-import com.oyorooms.alertsystem.system.Status;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Log {
@@ -16,9 +17,6 @@ public class Log {
     String serverId;
     String location;
     Long timestamp;
-
-    @OneToOne(targetEntity = Status.class, cascade = CascadeType.ALL)
-    Status status;
 
     public Log() {
     }
@@ -55,11 +53,4 @@ public class Log {
         this.timestamp = timestamp;
     }
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
 }
