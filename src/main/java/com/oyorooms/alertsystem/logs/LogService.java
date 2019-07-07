@@ -5,7 +5,6 @@ package com.oyorooms.alertsystem.logs;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,9 +17,7 @@ public class LogService {
     }
 
     List<Log> getAllLogs() {
-        ArrayList<Log> logs = new ArrayList<>();
-        logRepository.findAll().forEach(logs::add);
-        return logs;
+        return logRepository.findAll();
     }
 
     Log getLog(Long id) {
