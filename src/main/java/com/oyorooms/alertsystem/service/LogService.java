@@ -1,8 +1,10 @@
 /*
   Created by rameshwar on 2019-07-06.
  */
-package com.oyorooms.alertsystem.logs;
+package com.oyorooms.alertsystem.service;
 
+import com.oyorooms.alertsystem.entity.Log;
+import com.oyorooms.alertsystem.repo.LogRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,28 +18,28 @@ public class LogService {
         this.logRepository = logRepository;
     }
 
-    List<Log> getAllLogs() {
+    public List<Log> getAllLogs() {
         return logRepository.findAll();
     }
 
-    List<Log> getUnresolvedLogs() {
+    public List<Log> getUnresolvedLogs() {
         return logRepository.findByIsResolved(false);
     }
 
-    List<Log> getResolvedLogs() {
+    public List<Log> getResolvedLogs() {
         return logRepository.findByIsResolved(true);
     }
 
-    Log getLog(Long id) {
+    public Log getLog(Long id) {
         return logRepository.findById(id).get();
     }
 
-    void addLog(Log log) {
+    public void addLog(Log log) {
         log.timestamp = System.currentTimeMillis();
         logRepository.save(log);
     }
 
-    void updateLog(long id, Log newLog) {
+    public void updateLog(long id, Log newLog) {
         Log log = logRepository.findById(id).get();
         log.setMemberId(newLog.getMemberId());
         log.setResolved(true);

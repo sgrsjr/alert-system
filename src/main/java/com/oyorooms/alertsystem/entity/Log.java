@@ -1,7 +1,7 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.logs;
+package com.oyorooms.alertsystem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +15,7 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String location;
-    Long timestamp;
+    public Long timestamp;
     private Long updateTimestamp;
     private String errorMessage;
     private Long teamId;
@@ -53,7 +53,7 @@ public class Log {
         return updateTimestamp;
     }
 
-    void setUpdateTimestamp(Long updateTimestamp) {
+    public void setUpdateTimestamp(Long updateTimestamp) {
         this.updateTimestamp = updateTimestamp;
     }
 
@@ -73,11 +73,11 @@ public class Log {
         this.teamId = teamId;
     }
 
-    Long getMemberId() {
+    public Long getMemberId() {
         return memberId;
     }
 
-    void setMemberId(Long memberId) {
+    public void setMemberId(Long memberId) {
         this.memberId = memberId;
     }
 
@@ -85,7 +85,7 @@ public class Log {
         return isResolved;
     }
 
-    void setResolved(boolean resolved) {
+    public void setResolved(boolean resolved) {
         isResolved = resolved;
     }
 }

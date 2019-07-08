@@ -1,9 +1,7 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.members;
-
-import com.oyorooms.alertsystem.teams.Team;
+package com.oyorooms.alertsystem.entity;
 
 import javax.persistence.*;
 
@@ -41,7 +39,7 @@ public class Member {
 //        return team;
 //    }
 
-    void setTeam(Team team) {
+    public void setTeam(Team team) {
         this.team = team;
     }
 }

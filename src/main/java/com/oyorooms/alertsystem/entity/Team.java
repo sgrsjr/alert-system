@@ -1,9 +1,7 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.teams;
-
-import com.oyorooms.alertsystem.members.Member;
+package com.oyorooms.alertsystem.entity;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,8 +1,10 @@
 /*Ò
   Created by rameshwar on 2019-07-06.
  */
-package com.oyorooms.alertsystem.logs;
+package com.oyorooms.alertsystem.controller;
 
+import com.oyorooms.alertsystem.entity.Log;
+import com.oyorooms.alertsystem.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,8 +1,10 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.members;
+package com.oyorooms.alertsystem.service;
 
+import com.oyorooms.alertsystem.entity.Member;
+import com.oyorooms.alertsystem.repo.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,23 +18,23 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    List<Member> getAllTeamMembers(Long teamId) {
+    public List<Member> getAllTeamMembers(Long teamId) {
         return memberRepository.findByTeamId(teamId);
     }
 
-    List<Member> getAllMembers() {
+    public List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
 
-    Member getMember(Long id) {
+    public Member getMember(Long id) {
         return memberRepository.findById(id).get();
     }
 
-    void addMember(Member member) {
+    public void addMember(Member member) {
         memberRepository.save(member);
     }
 
-    void updateMember(Member member) {
+    public void updateMember(Member member) {
         memberRepository.save(member);
     }
 }

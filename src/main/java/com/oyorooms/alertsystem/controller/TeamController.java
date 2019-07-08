@@ -1,8 +1,10 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.teams;
+package com.oyorooms.alertsystem.controller;
 
+import com.oyorooms.alertsystem.entity.Team;
+import com.oyorooms.alertsystem.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

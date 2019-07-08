@@ -1,8 +1,10 @@
 /*
   Created by rameshwar on 2019-07-07.
  */
-package com.oyorooms.alertsystem.teams;
+package com.oyorooms.alertsystem.service;
 
+import com.oyorooms.alertsystem.entity.Team;
+import com.oyorooms.alertsystem.repo.TeamRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,19 +18,19 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-    List<Team> getAllTeams() {
+    public List<Team> getAllTeams() {
         return teamRepository.findAll();
     }
 
-    Team getTeam(Long id) {
+    public Team getTeam(Long id) {
         return teamRepository.findById(id).get();
     }
 
-    void addTeam(Team team) {
+    public void addTeam(Team team) {
         teamRepository.save(team);
     }
 
-    void updateTeam(Team team) {
+    public void updateTeam(Team team) {
         teamRepository.save(team);
     }
 }
