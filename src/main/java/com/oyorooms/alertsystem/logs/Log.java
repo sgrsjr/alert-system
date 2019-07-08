@@ -12,12 +12,14 @@ import javax.persistence.Id;
 public class Log {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String location;
     Long timestamp;
+    private Long updateTimestamp;
     private String errorMessage;
-    private String teamId;
+    private Long teamId;
+    private Long memberId;
     private boolean isResolved;
 
     public Log() {
@@ -47,6 +49,14 @@ public class Log {
         this.timestamp = timestamp;
     }
 
+    public Long getUpdateTimestamp() {
+        return updateTimestamp;
+    }
+
+    void setUpdateTimestamp(Long updateTimestamp) {
+        this.updateTimestamp = updateTimestamp;
+    }
+
     public String getErrorMessage() {
         return errorMessage;
     }
@@ -55,19 +65,27 @@ public class Log {
         this.errorMessage = errorMessage;
     }
 
-    public String getTeamId() {
+    public Long getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
+    public void setTeamId(Long teamId) {
         this.teamId = teamId;
+    }
+
+    Long getMemberId() {
+        return memberId;
+    }
+
+    void setMemberId(Long memberId) {
+        this.memberId = memberId;
     }
 
     public boolean isResolved() {
         return isResolved;
     }
 
-    public void setResolved(boolean resolved) {
+    void setResolved(boolean resolved) {
         isResolved = resolved;
     }
 }

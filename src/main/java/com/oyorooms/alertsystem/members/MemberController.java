@@ -3,6 +3,7 @@
  */
 package com.oyorooms.alertsystem.members;
 
+import com.oyorooms.alertsystem.teams.Team;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,13 +34,17 @@ public class MemberController {
 
     @RequestMapping(value = "/teams/{teamId}", method = RequestMethod.POST)
     public void addMember(Member member, @PathVariable String teamId) {
-        member.setTeamId(Long.parseLong(teamId));
+        Team team = new Team();
+        team.setId(Long.parseLong(teamId));
+        member.setTeam(team);
         memberService.addMember(member);
     }
 
     @RequestMapping(value = "/teams/{teamId}", method = RequestMethod.PUT)
     public void updateMember(Member member, @PathVariable String teamId) {
-        member.setTeamId(Long.parseLong(teamId));
+        Team team = new Team();
+        team.setId(Long.parseLong(teamId));
+        member.setTeam(team);
         memberService.updateMember(member);
     }
 

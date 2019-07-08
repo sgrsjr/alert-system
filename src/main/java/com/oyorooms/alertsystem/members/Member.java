@@ -3,20 +3,20 @@
  */
 package com.oyorooms.alertsystem.members;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.oyorooms.alertsystem.teams.Team;
+
+import javax.persistence.*;
 
 @Entity
 public class Member {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private String name;
 
-    private Long teamId;
+    @ManyToOne(targetEntity = Team.class, cascade = CascadeType.MERGE)
+    private Team team;
 
     public Member() {
     }
@@ -37,11 +37,11 @@ public class Member {
         this.name = name;
     }
 
-    public Long getTeamId() {
-        return teamId;
+    public Team getTeam() {
+        return team;
     }
 
-    void setTeamId(Long teamId) {
-        this.teamId = teamId;
+    void setTeam(Team team) {
+        this.team = team;
     }
 }

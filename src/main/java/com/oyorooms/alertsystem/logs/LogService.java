@@ -29,8 +29,11 @@ public class LogService {
         logRepository.save(log);
     }
 
-    void updateLog(Log log) {
-        log.timestamp = System.currentTimeMillis();
+    void updateLog(long id, Log newLog) {
+        Log log = logRepository.findById(id).get();
+        log.setMemberId(newLog.getMemberId());
+        log.setResolved(true);
+        log.setUpdateTimestamp(System.currentTimeMillis());
         logRepository.save(log);
     }
 

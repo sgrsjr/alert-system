@@ -36,8 +36,8 @@ public class LogController {
         logService.addLog(log);
     }
 
-    @RequestMapping(value = "/logs", method = RequestMethod.PUT)
-    void updateLog(Log log) {
-        logService.updateLog(log);
+    @RequestMapping(value = "/logs/{id}", method = RequestMethod.PUT)
+    void updateLog(@PathVariable String id, Log log) {
+        logService.updateLog(Long.parseLong(id), log);
     }
 }
