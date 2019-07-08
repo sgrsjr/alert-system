@@ -6,10 +6,7 @@ package com.oyorooms.alertsystem.controller;
 import com.oyorooms.alertsystem.entity.Team;
 import com.oyorooms.alertsystem.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,22 +20,22 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    @RequestMapping("/teams")
+    @GetMapping("/teams")
     public List<Team> getAllTeams() {
         return teamService.getAllTeams();
     }
 
-    @RequestMapping("/teams/{id}")
+    @GetMapping("/teams/{id}")
     public Team getTeam(@PathVariable String id) {
         return teamService.getTeam(Long.parseLong(id));
     }
 
-    @RequestMapping(value = "/teams", method = RequestMethod.POST)
+    @PostMapping(value = "/teams")
     public void addTeam(Team team) {
         teamService.addTeam(team);
     }
 
-    @RequestMapping(value = "/teams", method = RequestMethod.PUT)
+    @PutMapping(value = "/teams")
     public void updateTeam(Team team) {
         teamService.updateTeam(team);
     }

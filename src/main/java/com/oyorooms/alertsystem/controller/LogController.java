@@ -6,10 +6,7 @@ package com.oyorooms.alertsystem.controller;
 import com.oyorooms.alertsystem.entity.Log;
 import com.oyorooms.alertsystem.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,32 +20,32 @@ public class LogController {
         this.logService = logService;
     }
 
-    @RequestMapping("/logs")
+    @GetMapping("/logs")
     List<Log> getAllLogs() {
         return logService.getAllLogs();
     }
 
-    @RequestMapping("/logs/unresolved")
+    @GetMapping("/logs/unresolved")
     List<Log> getUnresolvedLogs() {
         return logService.getUnresolvedLogs();
     }
 
-    @RequestMapping("/logs/resolved")
+    @GetMapping("/logs/resolved")
     List<Log> getResolvedLogs() {
         return logService.getResolvedLogs();
     }
 
-    @RequestMapping("/logs/{id}")
+    @GetMapping("/logs/{id}")
     Log getLog(@PathVariable Long id) {
         return logService.getLog(id);
     }
 
-    @RequestMapping(value = "/logs", method = RequestMethod.POST)
+    @PostMapping(value = "/logs")
     void addLog(Log log) {
         logService.addLog(log);
     }
 
-    @RequestMapping(value = "/logs/{id}", method = RequestMethod.PUT)
+    @PutMapping(value = "/logs/{id}")
     void updateLog(@PathVariable String id, Log log) {
         logService.updateLog(Long.parseLong(id), log);
     }

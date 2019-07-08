@@ -7,10 +7,7 @@ import com.oyorooms.alertsystem.entity.Member;
 import com.oyorooms.alertsystem.entity.Team;
 import com.oyorooms.alertsystem.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,22 +21,22 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @RequestMapping("/teams/members")
+    @GetMapping("/teams/members")
     public List<Member> getAllMembers() {
         return memberService.getAllMembers();
     }
 
-    @RequestMapping("/teams/{teamId}/members")
+    @GetMapping("/teams/{teamId}/members")
     public List<Member> getAllTeamMembers(@PathVariable("teamId") Long id) {
         return memberService.getAllTeamMembers(id);
     }
 
-    @RequestMapping("/teams/{teamId}/members/{id}")
+    @GetMapping("/teams/{teamId}/members/{id}")
     public Member getMember(@PathVariable("id") Long id) {
         return memberService.getMember(id);
     }
 
-    @RequestMapping(value = "/teams/{teamId}", method = RequestMethod.POST)
+    @PostMapping(value = "/teams/{teamId}")
     public void addMember(Member member, @PathVariable String teamId) {
         Team team = new Team();
         team.setId(Long.parseLong(teamId));
@@ -47,7 +44,7 @@ public class MemberController {
         memberService.addMember(member);
     }
 
-    @RequestMapping(value = "/teams/{teamId}", method = RequestMethod.PUT)
+    @PutMapping(value = "/teams/{teamId}")
     public void updateMember(Member member, @PathVariable String teamId) {
         Team team = new Team();
         team.setId(Long.parseLong(teamId));
