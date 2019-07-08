@@ -16,7 +16,11 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    List<Member> getAllMembers(Long teamId) {
+    List<Member> getAllTeamMembers(Long teamId) {
+        return memberRepository.findByTeamId(teamId);
+    }
+
+    List<Member> getAllMembers() {
         return memberRepository.findAll();
     }
 

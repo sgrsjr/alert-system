@@ -20,6 +20,14 @@ public class LogService {
         return logRepository.findAll();
     }
 
+    List<Log> getUnresolvedLogs() {
+        return logRepository.findByIsResolved(false);
+    }
+
+    List<Log> getResolvedLogs() {
+        return logRepository.findByIsResolved(true);
+    }
+
     Log getLog(Long id) {
         return logRepository.findById(id).get();
     }
@@ -36,5 +44,4 @@ public class LogService {
         log.setUpdateTimestamp(System.currentTimeMillis());
         logRepository.save(log);
     }
-
 }

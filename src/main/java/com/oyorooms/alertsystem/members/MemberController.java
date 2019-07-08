@@ -22,9 +22,14 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @RequestMapping("/teams/members")
+    public List<Member> getAllMembers() {
+        return memberService.getAllMembers();
+    }
+
     @RequestMapping("/teams/{teamId}/members")
-    public List<Member> getAllMembers(@PathVariable("teamId") Long id) {
-        return memberService.getAllMembers(id);
+    public List<Member> getAllTeamMembers(@PathVariable("teamId") Long id) {
+        return memberService.getAllTeamMembers(id);
     }
 
     @RequestMapping("/teams/{teamId}/members/{id}")

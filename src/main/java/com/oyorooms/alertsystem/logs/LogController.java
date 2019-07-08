@@ -26,6 +26,16 @@ public class LogController {
         return logService.getAllLogs();
     }
 
+    @RequestMapping("/logs/unresolved")
+    List<Log> getUnresolvedLogs() {
+        return logService.getUnresolvedLogs();
+    }
+
+    @RequestMapping("/logs/resolved")
+    List<Log> getResolvedLogs() {
+        return logService.getResolvedLogs();
+    }
+
     @RequestMapping("/logs/{id}")
     Log getLog(@PathVariable Long id) {
         return logService.getLog(id);
