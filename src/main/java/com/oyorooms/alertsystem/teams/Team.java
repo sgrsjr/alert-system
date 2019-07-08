@@ -16,8 +16,7 @@ public class Team {
     Long id;
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable
+    @OneToMany(targetEntity = Member.class, mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Member> members;
 
     public Team() {

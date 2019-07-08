@@ -15,7 +15,7 @@ public class Member {
     Long id;
     private String name;
 
-    @ManyToOne(targetEntity = Team.class, cascade = CascadeType.MERGE)
+    @ManyToOne(targetEntity = Team.class, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Team team;
 
     public Member() {
@@ -37,9 +37,9 @@ public class Member {
         this.name = name;
     }
 
-    public Team getTeam() {
-        return team;
-    }
+//    public Team getTeam() {
+//        return team;
+//    }
 
     void setTeam(Team team) {
         this.team = team;
